@@ -42,8 +42,6 @@ void main(void)
         
         if(temp != temp_previous)
         {
-            lcd_prtStr(1,7,"     ");
-            
             LED_7 = (uint8_t)(~LED_7); // Notice of reread on the ADC channel
             
             temp_previous =  temp;
