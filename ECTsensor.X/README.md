@@ -9,6 +9,6 @@ There is a little explanation in the program description.
 
 Thanks to Iguaçu Componentes Eletrônicos (www.iguacu.com.br), for the information about the characteristics of the NTC thermistor.
 
- https://github.com/AntonioCastilho/PIC18F4550/blob/main/ECTsensor.X/Thermistor_PIC.jpg
+
  
 
