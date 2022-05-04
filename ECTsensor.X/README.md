@@ -7,8 +7,8 @@ It is for automotive application in liquid environment, normally for engine cool
 The Beta Formula was used to calculate the temperature, from a known temperature measurement and its resistance, corrected with the Beta coefficient.
 There is a little explanation in the program description.
 
-Thanks to Iguaçu Componentes Eletrônicos (www.iguacu.com.br), for the information about the characteristics of the NTC thermistor.
+Thanks to IguaÃ§u Componentes EletrÃ´nicos (www.iguacu.com.br), for the information about the characteristics of the NTC thermistor.
 
- 
+ https://github.com/AntonioCastilho/PIC18F4550/blob/main/ECTsensor.X/Thermistor_PIC.jpg
  
 
