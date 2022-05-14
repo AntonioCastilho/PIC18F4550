@@ -1,7 +1,9 @@
 /* ****************************************************************************
- * Project: Control Functions             File stepper_motor.h                Maio/2022
+ * Project: Control Functions             File: bouncing.h                Maio/2022
  * ****************************************************************************
- * File description:       
+ * File description: Initial study for the use of buttons with attenuation of the switch-bouncing 
+ *                         effect in software, for use in controls of stepper motors and DC motors. 
+ *                         (MOSFET DRIVER).      
  * ****************************************************************************
  * Program environment for validation: MPLAB X IDE v6.0, XC8 v2.36, C std C90,
  * PIC18F4550 mounted on FATEC development board (FATEC board) - 20 MHz crystal.
@@ -17,16 +19,12 @@
  * 05/09/2022| Antonio Castilho  | Function has been created
  ******************************************************************************/ 
 
-#ifndef STEPPER_MOTOR_H
-#define	STEPPER_MOTOR_H
+#ifndef BOUNCING_H
+#define	BOUNCING_H
 
 #include <xc.h>
 
-#define BOBINA_1A       LATBbits.LATB7
-#define BOBINA_2A       LATBbits.LATB6
+// TODO functions to control the bounce effect which can be used in different applications.
 
-#define BOBINA_1B       LATBbits.LATB5
-#define BOBINA_2B       LATBbits.LATB4
-
-#endif	/* STEPPER_MOTOR_H */
+#endif	/* BOUNCING_H */
 

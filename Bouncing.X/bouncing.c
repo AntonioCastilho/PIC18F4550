@@ -1,5 +1,5 @@
 /* ****************************************************************************
- * Project: Control Functions             File stepper_motor.c                Maio/2022
+ * Project: Control Functions             File bouncing.c                Maio/2022
  * ****************************************************************************
  * File description: Initial study for the use of buttons with attenuation of the switch-bouncing 
  *                         effect in software, for use in controls of stepper motors and DC motors. 
