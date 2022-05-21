@@ -28,7 +28,7 @@
 #include "spi.h"
 
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- * Function: void initialize_SPI(void)
+ * Function: void spi_initialize(void)
  * Description: Configures the SPI for communication with the MCP2515 module
  * Input: void
  * Output: void
@@ -63,10 +63,10 @@ void spi_initialize(void)
     INTCON3bits.INT2IE = ENABLE; // INT2 External Interrupt Enable bit.
     INTCON3bits.INT2IF = NO;     // INT2 External Interrupt Flag bit
     
-} // end  initialize_spi(void)
+} // end  spi_initialize(void)
 
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- * Function: void close_spi(void)
+ * Function: void spi_closei(void)
  * Description: Disable SPI communication.
  * Input: void
  * Output: void
@@ -79,10 +79,10 @@ void spi_close(void)
     // them as I/O ports. Pg 197
     SSPCON1bits.SSPEN = 0;
     
-} // end void close_spi(void).
+} // end void spi_close(void).
 
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- * Function: void write_spi(uint8_t data_to_send)
+ * Function: void spi_write(uint8_t data_to_send)
  * Description: Send 1 byte via SPI to connected slave.
  * Input: uint8_t data_to_send, that is the date to send
  * Output: void
@@ -97,10 +97,10 @@ void spi_write(uint8_t data_to_send)
     PIR1bits.SSPIF = 0;     // clear flag.
     buffer_flush = SSPBUF;  // flush the buffer.
     
-} // end void write_spi(uint8_t data_to_send)
+} // end void spi_writeuint8_t data_to_send)
 
 /*-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
- * Function: uint8_t read_spi(void);
+ * Function: uint8_t spi_read(void);
  * Description: Read 1 byte via SPI to connected slave.
  * Input: void
  * Output: (uint8_t) data read; this is the data that was read.
@@ -114,4 +114,4 @@ uint8_t spi_read(void)
     PIR1bits.SSPIF = 0;
     return(SSPBUF);
     
-} // end  uint8_t read_spi(void)
+} // end  uint8_t spi_read(void)

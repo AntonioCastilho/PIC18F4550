@@ -1,5 +1,5 @@
 /* ****************************************************************************
- * Project: Control Functions                             File REG2515.h                               March/2022
+ * Project: Control Functions                          File REG2515.h                                  March/2022
  * ****************************************************************************
  * File description: Address definition for CAN controller register map in MCP2515.
  *                        These settings are used to configure and control the MCP2515.
@@ -30,12 +30,12 @@
  *******************************************************************/
 
 /* Configuration Registers */
-#define CANSTAT     0x0E //operation mode and interrupt flags status. Pg 61.
-#define CANCTRL     0x0F //CAN control. Pg 60.
-#define BFPCTRL      0x0C //pin control and status register. Pg 29.
-#define TEC             0x1C //transmit error count bits. Pg 49.
-#define REC             0x1D //receiver error counter. Pg 49.
-#define CNF3           0x28 //Bit-time settings. PS2 length. Pg 45.
+#define CANSTAT      0x0E //operation mode and interrupt flags status. Pg 61.
+#define CANCTRL      0x0F //CAN control. Pg 60.
+#define BFPCTRL       0x0C //pin control and status register. Pg 29.
+#define TEC              0x1C //transmit error count bits. Pg 49.
+#define REC              0x1D //receiver error counter. Pg 49.
+#define CNF3            0x28 //Bit-time settings. PS2 length. Pg 45.
 #define CNF2            0x29 //Bit-time settings.Propagation segment. Pg 44
 #define CNF1            0x2A //Bit-time settings. BRP. Pg 44.
 #define CANINTE       0x2B //interrupt enable bit for each interrupt source. Pg 53.
@@ -166,69 +166,69 @@
 
 /* TXBnCTRL */
 #define TXREQ           0x08
-#define TXP             0x03    
+#define TXP               0x03    
 
 /* RXBnCTRL */
 #define RXM             0x60
 #define BUKT            0x04
 
 /* CANCTRL */
-#define REQOP           0xE0
-#define ABAT            0x10
-#define	OSM             0x08
-#define CLKEN           0x04
-#define CLKPRE          0x03
+#define REQOP         0xE0
+#define ABAT           0x10
+#define OSM            0x08
+#define CLKEN         0x04
+#define CLKPRE       0x03
 
 /* CANSTAT */
-#define REQOP           0xE0
-#define ICOD            0x0E
+#define REQOP        0xE0
+#define ICOD          0x0E
 
 /* CANINTE */   
-#define RX0IE           0x01
-#define RX1IE           0x02
-#define TX0IE           0x04
-#define TX1IE           0x80
-#define TX2IE           0x10
-#define ERRIE           0x20
-#define WAKIE           0x40
-#define MERRE           0x80
+#define RX0IE         0x01
+#define RX1IE         0x02
+#define TX0IE         0x04
+#define TX1IE         0x80
+#define TX2IE         0x10
+#define ERRIE         0x20
+#define WAKIE        0x40
+#define MERRE        0x80
 
 /* CANINTF */   
-#define RX0IF           0x01
-#define RX1IF           0x02
-#define TX0IF           0x04
-#define TX1IF           0x80
-#define TX2IF           0x10
-#define ERRIF           0x20
-#define WAKIF           0x40
-#define MERRF           0x80
+#define RX0IF         0x01
+#define RX1IF         0x02
+#define TX0IF         0x04
+#define TX1IF         0x80
+#define TX2IF         0x10
+#define ERRIF         0x20
+#define WAKIF        0x40
+#define MERRF        0x80
 
 /* BFPCTRL */
-#define B1BFS           0x20
-#define B0BFS           0x10
-#define B1BFE           0x08
-#define B0BFE           0x04
-#define B1BFM           0x02
-#define B0BFM           0x01
+#define B1BFS        0x20
+#define B0BFS        0x10
+#define B1BFE        0x08
+#define B0BFE        0x04
+#define B1BFM        0x02
+#define B0BFM        0x01
 
 /* CNF1 Masks */
-#define SJW             0xC0
-#define BRP             0x3F
+#define SJW           0xC0
+#define BRP            0x3F
 
 /* CNF2 Masks */
-#define BTLMODE         0x80
-#define SAM             0x40
-#define PHSEG1          0x38
-#define PRSEG           0x07
+#define BTLMODE    0x80
+#define SAM            0x40
+#define PHSEG1       0x38
+#define PRSEG         0x07
 
 /* CNF3 Masks */
-#define WAKFIL          0x40
-#define PHSEG2          0x07
+#define WAKFIL       0x40
+#define PHSEG2       0x07
 
 /* TXRTSCTRL Masks */
-#define TXB2RTS         0x04
-#define TXB1RTS         0x02
-#define TXB0RTS         0x01
+#define TXB2RTS     0x04
+#define TXB1RTS     0x02
+#define TXB0RTS     0x01
 
 
 /*******************************************************************
@@ -244,10 +244,10 @@
 #define CAN_125kbps 0x04 
 
 
-#define SJW_1TQ         0x00
-#define SJW_2TQ         0x40
-#define SJW_3TQ         0x80
-#define SJW_4TQ         0xC0
+#define SJW_1TQ       0x00
+#define SJW_2TQ       0x40
+#define SJW_3TQ       0x80
+#define SJW_4TQ       0xC0
 
 // Defined based on the 8 MHz oscillator built into the MCP2515 x TJA1050 
 // module.
@@ -256,11 +256,11 @@
 #define CAN_125kbps 0x04 
 
 /* CNF2 */
-#define BTLMODE_CNF3    0x80
+#define BTLMODE_CNF3     0x80
 #define BTLMODE_PH1_IPT 0x00
 
-#define SMPL_3X         0x40
-#define SMPL_1X         0x00
+#define SMPL_3X               0x40
+#define SMPL_1X               0x00
 
 #define PHSEG1_8TQ      0x38
 #define PHSEG1_7TQ      0x30
@@ -305,7 +305,7 @@
 #define RX1IE_ENABLED      0x02
 #define RX1IE_DISABLED     0x00
 #define G_RXIE_ENABLED    0x03
-#define G_RXIE_DISABLED   0x00
+#define G_RXIE_DISABLED  0x00
 
 #define TX0IE_ENABLED     0x04
 #define TX0IE_DISABLED    0x00
@@ -319,25 +319,25 @@
 #define ERRIE_ENABLED    0x20
 #define ERRIE_DISABLED   0x00
 #define WAKIE_ENABLED   0x40
-#define WAKIE_DISABLED  0x00
-#define IVRE_ENABLED      0x80
-#define IVRE_DISABLED     0x00
+#define WAKIE_DISABLED 0x00
+#define IVRE_ENABLED     0x80
+#define IVRE_DISABLED    0x00
 
 /* CANINTF */
-#define RX0IF_SET         0x01
-#define RX0IF_RESET     0x00
-#define RX1IF_SET         0x02
-#define RX1IF_RESET     0x00
-#define TX0IF_SET         0x04
-#define TX0IF_RESET     0x00
-#define TX1IF_SET         0x08
-#define TX2IF_RESET     0x00
-#define TX2IF_SET         0x10
-#define TX2IF_RESET     0x00
-#define ERRIF_SET         0x20
-#define ERRIF_RESET     0x00
-#define WAKIF_SET        0x40
-#define WAKIF_RESET    0x00
+#define RX0IF_SET        0x01
+#define RX0IF_RESET    0x00
+#define RX1IF_SET        0x02
+#define RX1IF_RESET    0x00
+#define TX0IF_SET        0x04
+#define TX0IF_RESET    0x00
+#define TX1IF_SET        0x08
+#define TX2IF_RESET    0x00
+#define TX2IF_SET        0x10
+#define TX2IF_RESET    0x00
+#define ERRIF_SET        0x20
+#define ERRIF_RESET    0x00
+#define WAKIF_SET       0x40
+#define WAKIF_RESET   0x00
 #define IVRF_SET          0x80
 #define IVRF_RESET      0x00
 
