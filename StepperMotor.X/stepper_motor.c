@@ -42,19 +42,19 @@ void main(void)
     TRISE = INPUT; // Button 1, 2 and 3 - I/O.
     TRISB = OUTPUT; // Configure PORTB for digital output.
     LATB = 0xFF;
-    TRISE = 0xFF;
+    TRISE = 0xFF; // See page: 126 of PIC18f450 datasheet.
     
     COIL_1A = 0; // Lilas
     COIL_1B = 0; // Marrom
     COIL_2A = 0; // Cinza
     COIL_2B = 0; // Azul
     
-    // Forward step: {COIL_1A, COIL_2B, COIL_1B, COIL_2A}
-    // Backward {COIL_1A, COIL_2A, COIL_1B, COIL_2B]
+    // Backward step: {COIL_1A, COIL_2B, COIL_1B, COIL_2A}
+    // Forward {COIL_1A, COIL_2A, COIL_1B, COIL_2B]
    
     while(1)
     {
-        // Forward or clockwise
+        // Backward - Nissan CVT stepper motor
         if(BTN_1 == PRESSED)  btn1_flag = ON; // Button pressed set flag
         if(BTN_1 == UNPRESSED && btn1_flag == ON && mode_full == TRUE) // when release button execute commands
         {
@@ -77,7 +77,7 @@ void main(void)
             btn1_flag = OFF; // return to initial condition for acquisition of other presses.
         }
         
-        // Backward or anticlockwise
+        // Forward - Nissan CVT stepper motor
         if(BTN_2 == PRESSED)  btn2_flag = ON; // Button pressed set flag
         if(BTN_2 == UNPRESSED && btn2_flag == ON) // when release button execute commands
         {
@@ -108,6 +108,7 @@ void main(void)
             btn3_flag = OFF; // return to initial condition for acquisition of other presses.
             btn1_flag = OFF; // return to initial condition for acquisition of other presses.
         }
+        // TODO PID stepper motor control.
         
     } // end while
 } // end main
