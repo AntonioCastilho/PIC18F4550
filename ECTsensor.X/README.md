@@ -14,3 +14,4 @@ Thanks to Iguaçu Componentes Eletrônicos (www.iguacu.com.br), for the informat
 To acquire the signal I mounted a small voltage divider with a resistor of 10k in series with NTC, and applied 5V to then read the result in the analog channel AN0 of the ADC module of the PIC18F4550.
 With this value read, the temperature value can be obtained by applying the Beta Formula.
 
+![Setup NTC Thermistor](https://github.com/AntonioCastilho/PIC18F4550/blob/main/ECTsensor.X/Thermistor_PIC.jpg?raw=true)
