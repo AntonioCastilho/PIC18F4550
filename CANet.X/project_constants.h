@@ -34,15 +34,15 @@
 /******************************************************************************/
 // Project constants.
 /******************************************************************************/
-#define INPUT               1
-#define OUTPUT            0
-#define HIGH                1
+#define INPUT                1
+#define OUTPUT             0
+#define HIGH                 1
 #define LOW                 0
 #define YES                  1
-#define NO                    0
-#define ON                    1
-#define OFF                   0
-#define ENABLE             1
+#define NO                   0
+#define ON                   1
+#define OFF                  0
+#define ENABLE            1
 #define DISABLE           0
 #define TRUE                1
 #define FALSE               0
@@ -50,11 +50,7 @@
 #define and                 &&
 #define or                    ||
 
-#define FOSC                48000000 // USB and CPU core clock source
-#define CLOCK_INSTRUCTION   (FOSC/4) // Instruction clock and peripheral clock
-#define TCY                 (4 * 1/FOSC) // CPU time to execute an instruction.
-
-#define _XTAL_FREQ         48000000  // used for delay functions of XC8.
+#define _XTAL_FREQ     48000000  // used for delay functions of XC8.
 
 
 
@@ -90,10 +86,10 @@
 #define PWM2_OUT      PORTCbits.RC1
 #define PWM1_OUT      PORTCbits.RC2
 // the RC3 pin is not implemented in PIC18F4550.
-#define USB2              PORTCbits.RC4
-#define USB3              PORTCbits.RC5
+#define USB2               PORTCbits.RC4
+#define USB3               PORTCbits.RC5
 // PORTCbits.RC6 free to use
-#define SDO               PORTCbits.RC7
+#define SDO                PORTCbits.RC7
 
 /******************************************************************************/
 // PORT D - 4-bit interface with LCD Display.
@@ -151,9 +147,9 @@ uint8_t digit_counter(const int32_t number);
  * #define LCD_E                 PORTDbits.RD0 
  * #define LCD_RS               PORTDbits.RD1
  * #define LCD_RW              PORTDbits.RD2
-*  #define LCD_D4              PORTDbits.RD4
-*  #define LCD_D5              PORTDbits.RD5
-*  #define LCD_D6              PORTDbits.RD6
-*  #define LCD_D7              PORTDbits.RD4
+*  #define LCD_D4               PORTDbits.RD4
+*  #define LCD_D5               PORTDbits.RD5
+*  #define LCD_D6               PORTDbits.RD6
+*  #define LCD_D7               PORTDbits.RD4
 *  *****************************************************************************
 */

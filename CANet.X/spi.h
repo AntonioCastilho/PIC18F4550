@@ -31,14 +31,6 @@
 #include <xc.h> // include processor files - each processor file is guarded.  
 #include "project_constants.h"
 
-// pin definition for SPI communication. Pg. 195
-#define SCK           PORTBbits.RB1 
-#define SDO           PORTCbits.RC7
-#define SDI            PORTBbits.RB0
-#define CS             PORTAbits.RA5
-#define MCP_INT     PORTBbits.RB2
-
-
 // function prototypes used to configure the PIC
 void spi_initialize(void);
 void spi_close(void);
