@@ -12,10 +12,6 @@
  * ****************************************************************************
  * Reference:
  * * Microchip PIC18F4550 Datasheet.
- * * Program Archive for the Advanced Topics Course in Microcontroller 
- *   Programming, Technology Colleges In Automotive Electronics, 
- *   FATEC Santo André. Professor Wesley Medeiros Torres.
- *   <http://www.fatecsantoandre.edu.br/>.
  * * MicroChip Developer Help sample program files. 
  *   <https://microchipdeveloper.com/>.
  * * HD44780U dot-matrix liquid crystal display controller Datasheet
@@ -36,13 +32,18 @@
 #include <stdlib.h>
 #include <math.h>
 #include "main.h"
+#include "hardware.h"
+#include "lcd.h"
+#include "timer.h"
+#include "adc.h"
+
 
 /******************************************************************************/
 // LCD Display pins setting
 /******************************************************************************/
-#define LCD_E          PORTDbits.RD0 
+#define LCD_E           PORTDbits.RD0 
 #define LCD_RS         PORTDbits.RD1
-#define LCD_RW         PORTDbits.RD2
+#define LCD_RW        PORTDbits.RD2
 //                     PORTDbits.RD3 
 #define LCD_D4         PORTDbits.RD4
 #define LCD_D5         PORTDbits.RD5
@@ -95,12 +96,12 @@
 /******************************************************************************
  * Macros for Display Control Functions.
  ******************************************************************************/
-#define lcd_clear()          lcd_com(0x01) // Display clear.
+#define lcd_clear()                lcd_com(0x01) // Display clear.
 #define lcd_cursorHome()     lcd_com(0x02) // Put cursor in row and column 0.
-#define lcd_cursorOff()      lcd_com(0x0C) // Display on, cursor off.
-#define lcd_cursorBlinks()   lcd_com(0x0F) // Display on, cursor blinks
-#define lcd_off()            lcd_com(0x08) // Display off.
-#define lcd_on()             lcd_com(0x0E) // Display on, cursor on, no blinks.
+#define lcd_cursorOff()         lcd_com(0x0C) // Display on, cursor off.
+#define lcd_cursorBlinks()     lcd_com(0x0F) // Display on, cursor blinks
+#define lcd_off()                  lcd_com(0x08) // Display off.
+#define lcd_on()                  lcd_com(0x0E) // Display on, cursor on, no blinks.
 /******************************************************************************/
 
 /******************************************************************************/
@@ -111,10 +112,14 @@ void lcd_ini(void); // initialize the display
 void lcd_prtChar(uint8_t dat); // Write char in display.
 void lcd_prtStr(const uint8_t row, const uint8_t col, const uint8_t *str); //Write string.
 void lcd_prtInt(const uint8_t row, const uint8_t col, const int32_t str);
+
 uint8_t digit_counter(uint16_t number);
 
-/******************************************************************************/
+void ms_time(uint16_t ms);
+void us_time(uint16_t us);
 
 /******************************************************************************/
+
+
 #endif	/* LCD_16X2_H */
 
