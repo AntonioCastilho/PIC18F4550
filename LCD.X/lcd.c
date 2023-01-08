@@ -50,18 +50,18 @@
 void lcd_com(uint8_t cmd)
 {
     LCD_PORT = 0xF0;
-    us_time(5);
+    us_time(10);
   
     LCD_PORT = (uint8_t)(LCD_PORT & (cmd & 0xF0)); // Send high nibble.
-    us_time(5);
+    us_time(10);
     
     LCD_RW = 0;     
     LCD_RS = 0;     
     LCD_E = 1;
-    us_time(5);
+    us_time(10);
 
     LCD_E = 0;
-    us_time(5);
+    us_time(10);
 
     LCD_PORT = 0xF0;
     LCD_PORT = (uint8_t)(LCD_PORT & ((cmd << 4) & 0xF0)); // Send low nibble.
@@ -69,10 +69,10 @@ void lcd_com(uint8_t cmd)
     LCD_RW = 0;     
     LCD_RS = 0;     
     LCD_E = 1;
-    us_time(5);
+    us_time(10);
 
     LCD_E = 0;
-    us_time(5);
+    us_time(10);
 
     if(cmd == 0x01) us_time(100);
     if(cmd == 0x00) us_time(100);       
@@ -92,16 +92,16 @@ void lcd_com(uint8_t cmd)
  ******************************************************************************/
 void lcd_ini(void)
 {
-    ms_time(45);
+    ms_time(100);
     LCD_TRIS = 0x00;  // Port D to LCD as output.
     LCD_PORT = 0x80;  // Power lcd display.
 
     // LCD display boot synchronization.
     lcd_com(0x30);  // Step 1.
-    ms_time(5);
+    ms_time(50);
     
     lcd_com(0x30);  // Step 2.
-    us_time(150);
+    us_time(300);
     
     lcd_com(0x30); 
     
@@ -130,16 +130,16 @@ void lcd_ini(void)
 void lcd_prtChar(uint8_t dat)
 {
     LCD_PORT = 0xF0;
-    us_time(20);
+    us_time(40);
     LCD_PORT = (uint8_t)(LCD_PORT & (dat & 0xF0)); // Send high nibble.
-    us_time(20);
+    us_time(40);
     
     LCD_RW = 0;     
     LCD_RS = 1;     
     LCD_E = 1;
-    us_time(20);
+    us_time(40);
     LCD_E = 0;
-    us_time(20);
+    us_time(40);
     
     LCD_PORT = 0xF0;
     LCD_PORT = (uint8_t)(LCD_PORT & ((dat << 4) & 0xF0)); // Send low nibble.
@@ -147,9 +147,9 @@ void lcd_prtChar(uint8_t dat)
     LCD_RW = 0;     
     LCD_RS = 1;     
     LCD_E = 1;     
-    us_time(20);
+    us_time(40);
     LCD_E = 0;
-    us_time(20);
+    us_time(40);
 }
 /* end of function 
  * void lcd_prtChar(uint8_t dat)
@@ -183,7 +183,7 @@ void lcd_prtStr(const uint8_t row, const uint8_t col, const uint8_t *str)
     
     while(*str)
     {
-        us_time(100);
+        us_time(200);
         lcd_prtChar(*str);
         str++;
     }
@@ -244,18 +244,26 @@ uint8_t digit_counter(uint16_t number)
  * Output: void.
  * Created in: 07/01/2023 by Antonio Aparecido Ariza Castilho
  ******************************************************************************/
+//48000000 
+//48000000/4 = 12000000
+//        cilco = 1/12000000 = 8.333E-8 s
+//                                        0.0000000833 s 
+//                                        0.08333 us  
+//                                        0.00008333 ms  
+//                                        833 ns
+
+        
+        
+        
 void ms_time(uint16_t ms)
 {
-    for(uint16_t tms=0; tms < ms; tms++)
+      
+    for(uint16_t tms=0; tms < ms/10; tms++)
     {
-        for(uint16_t s=0; s < 12000; s++)
-        {
-            NOP();
-        }
-    }
-    
-} // end ms_time(uint16 ms)
+        for(uint16_t sms=0; sms < ((_XTAL_FREQ/4)/1000); sms++);
 
+    }
+} // end ms_time(uint16 ms)
 
 /*******************************************************************************
  * Function: void us_time(uint16_t ms);
@@ -266,11 +274,8 @@ void ms_time(uint16_t ms)
  ******************************************************************************/
 void us_time(uint16_t us)
 {
-        for(uint16_t tus=0; tus < us; tus++)
+    for(uint16_t tus=0; tus < us/10; tus++)
     {
-        for(uint16_t s=0; s < 12; s++)
-        {
-            NOP();
-        }
+        for(uint16_t sus=0; sus < (_XTAL_FREQ>>2)/1000000; sus++);
     }
 } // end us_time(uint16_t us)
